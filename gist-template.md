@@ -32,6 +32,8 @@ The / symbol at the beginnin and end is what identifies this as a regex. Startin
 
 The anchors commonly used in a regex are ^ and \$. These are positional characters, which are meant to judge where a given input is meant to be evaluated. ^ markes the beginning of the evaluation, and \$ marks the end.
 
+The example regex contains both anchor tags.
+
 ### Quantifiers
 
 Quantifiers are used to determine how many matches for an input the regex is looking for.
@@ -42,6 +44,8 @@ A ? means the input can optionally include a specific criteria.
 {} can also be used to quantify inputs. When given a single number, the regex will look for exactly that number of characters, When given two numbers, the regex will treat them as acceptable minimum and maximum numbers of characters.
 {n}
 {min, max}
+
+As an example, the end of the email regex has {2,6}, meaning it will search for instances of between 2 and 6 characters.
 
 ### OR Operator
 
@@ -69,15 +73,19 @@ When using groups, the entire regex is considered 'Group 0'. Inside the regex, a
 
 These can be accessed later with either $ or l, followed by the number of the group desired. $ will allow to use the group in replacement syntax, while \ is used for referring to the group within the regex - for example, to find sets of repeating characters.
 
+An example from the email regex is ([\da-z\.\-]+).
+
 ### Bracket Expressions
 
 Characters inside of brackets are specific characters that the regex is looking for, similar to an AND operator. There are a few rules to be followed with bracket expressions.
 
-If a - is used inside of brackets, it must be the first character, or else it will be treated as a range, such as A-Z which searches for any uppercase letter.
+If a - is used inside of brackets, it must be the first character, or else it will be treated as a range, such as A-Z which searches for any uppercase letter, or 0-9 which searches for any number.
 
 ^ is an exclusion symbol, and will note that the regex is NOT looking for specific characters.
 
 Bracket expressions are also considered character classes.
+
+An example from the given regex is [a-z0-9\_\.\-].
 
 ### Greedy and Lazy Match
 
